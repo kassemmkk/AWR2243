@@ -1,0 +1,1149 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr B 17000 11000
+encoding utf-8
+Sheet 1 1
+Title "PROC099A_PMIC_Reference-SchDoc"
+Date "22 05 2025"
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+Text Notes 15300 10600 0    60   ~ 0
+4
+Text Notes 15550 10600 0    60   ~ 0
+16
+Text Notes 13610 10500 0    60   ~ 0
+PMIC
+Text Notes 15200 10300 0    60   ~ 0
+Not shown in title block
+Text Notes 13320 10700 0    60   ~ 0
+Not shown in title block
+Wire Notes Line
+	15700 10500 13100 10500
+Wire Notes Line
+	13100 10700 16800 10700
+Text Notes 13130 10500 0    60   ~ 0
+Sheet Title:
+Text Notes 15230 10700 0    60   ~ 0
+Size:
+Text Notes 14720 10300 0    60   ~ 0
+Mod. Date:
+Text Notes 13130 10700 0    60   ~ 0
+File:
+Text Notes 15030 10600 0    60   ~ 0
+Sheet:
+Text Notes 15420 10600 0    60   ~ 0
+of
+Text Notes 15450 10700 0    60   ~ 0
+B
+Wire Notes Line
+	15700 10500 13100 10500
+Wire Notes Line
+	11600 10500 4100 10500
+Wire Notes Line
+	13100 10600 15700 10600
+Text Notes 15900 10700 0    60   ~ 0
+http://www.ti.com
+Text Notes 13130 10800 0    60   ~ 0
+Contact:
+Text Notes 13500 10800 0    60   ~ 0
+=TechSupport
+Wire Notes Line
+	14700 10300 14700 10200
+Wire Notes Line
+	15700 10400 13100 10400
+Text Notes 13650 10400 0    60   ~ 0
+=PRJ_Title
+Text Notes 13130 10400 0    60   ~ 0
+Project Title:
+Wire Notes Line
+	13100 10200 13100 10800
+Wire Notes Line
+	16800 10200 13100 10200
+Text Notes 13130 10300 0    60   ~ 0
+Designed for:
+Text Notes 13680 10300 0    60   ~ 0
+=PRJ_Customer
+Wire Notes Line
+	15000 10600 15000 10500
+Text Notes 13130 10600 0    60   ~ 0
+Assembly Variant:
+Text Notes 13870 10600 0    60   ~ 0
+=variantName
+Text Notes 15800 10800 0    48   ~ 0
+© Texas Instruments
+Text Notes 16500 10800 0    48   ~ 0
+=CopyrightYear
+Text Notes 11630 10700 0    60   ~ 0
+Drawn By:
+Text Notes 11630 10800 0    60   ~ 0
+Engineer:
+Text Notes 12050 10700 0    60   ~ 0
+Adrian Ozer
+Text Notes 12050 10800 0    60   ~ 0
+=PRJ_Engineer
+Wire Notes Line
+	15700 10200 15700 10700
+Text Label 4150 10500 0 60 ~
+Texas Instruments and/or its licensors do not warrant the accuracy or completeness of this specification or any information contained therein. Texas Instruments and/or its licensors do not warrant that this design will meet the specifications, will be suitable for your application or fit for any particular purpose, or will operate in an implementation. Texas Instruments and/or its licensors do not warrant that the design is production worthy. You should completely validate and test your design implementation to confirm the system functionality for your application.
+Wire Notes Line
+	11600 10200 11600 10800
+Wire Notes Line
+	13100 10700 11600 10700
+Wire Notes Line
+	11600 10600 13100 10600
+Wire Notes Line
+	15200 10700 15200 10600
+Wire Notes Line
+	15700 10300 13100 10300
+Wire Notes Line
+	13100 10500 11600 10500
+Wire Notes Line
+	4100 10800 4100 10500
+Text Notes 12100 10600 0    60   ~ 0
+=VersionControl_RevNumber
+Text Notes 11630 10600 0    60   ~ 0
+SVN Rev:
+Text Notes 12000 10500 0    60   ~ 0
+=PRJ_Number
+Text Notes 11630 10500 0    60   ~ 0
+Number:
+Wire Notes Line
+	13100 10400 11600 10400
+Text Notes 12630 10500 0    60   ~ 0
+Rev:
+Wire Notes Line
+	12600 10500 12600 10400
+Text Notes 12900 10500 0    60   ~ 0
+=SCH_Rev
+Wire Notes Line
+	13100 10300 11600 10300
+Text Notes 11630 10400 0    60   ~ 0
+TID #:
+Text Notes 12100 10350 0    60   ~ 0
+=TID
+Wire Notes Line
+	13100 10200 11600 10200
+Text Notes 11630 10300 0    60   ~ 0
+Orderable:
+Text Notes 12100 10250 0    60   ~ 0
+=EVM_orderable
+Wire Wire Line
+	1900 1100 1900 1400
+Wire Wire Line
+	1500 1100 1500 1400
+Wire Wire Line
+	1700 900 1700 1100
+$Comp
+L power:+5V_UNREG #PWR?682F9AE4
+U 1 1 682F9AE4
+P 1700 900
+F 0 "5V_UNREG" H 1700 900 20  0000 C CNN
+F 1 "5V_UNREG" H 1700 830 30  0000 C CNN
+F 2 "" H 1700 900 70  0000 C CNN
+F 3 "" H 1700 900 70  0000 C CNN
+	1    1700 900
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?682F9AE3
+U 1 1 682F9AE3
+P 1700 2100
+F 0 "GND_54" H 1700 2240 20  0000 C CNN
+F 1 "GND" H 1700 2210 30  0000 C CNN
+F 2 "" H 1700 2100 70  0000 C CNN
+F 3 "" H 1700 2100 70  0000 C CNN
+	1    1700 2100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1700 1900 1700 2100
+Wire Wire Line
+	7900 7300 7900 7500
+Wire Wire Line
+	7500 7300 7500 7500
+Wire Wire Line
+	7200 8200 7200 7900
+Wire Wire Line
+	6600 8200 7200 8200
+Wire Wire Line
+	7500 8500 7500 7900
+Wire Wire Line
+	6600 8500 7500 8500
+Wire Wire Line
+	7900 8700 7900 7900
+Wire Wire Line
+	6600 8700 7900 8700
+Wire Wire Line
+	8200 8900 8200 7900
+Wire Wire Line
+	6600 8900 8200 8900
+$Comp
+L power:+PMICVIO_3V3 #PWR?682F9AE2
+U 1 1 682F9AE2
+P 7200 7000
+F 0 "PMICVIO_3V3" H 7200 7000 20  0000 C CNN
+F 1 "PMICVIO_3V3" H 7200 6930 30  0000 C CNN
+F 2 "" H 7200 7000 70  0000 C CNN
+F 3 "" H 7200 7000 70  0000 C CNN
+	1    7200 7000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13400 7900 13000 7900
+Wire Wire Line
+	13400 8200 13400 7900
+Wire Wire Line
+	12100 7900 12600 7900
+Wire Wire Line
+	12100 7600 12100 7900
+$Comp
+L power:+PMICOUT_3V3 #PWR?682F9AE1
+U 1 1 682F9AE1
+P 12100 7600
+F 0 "PMICOUT_3V3" H 12100 7600 20  0000 C CNN
+F 1 "PMICOUT_3V3" H 12100 7530 30  0000 C CNN
+F 2 "" H 12100 7600 70  0000 C CNN
+F 3 "" H 12100 7600 70  0000 C CNN
+	1    12100 7600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?682F9AE0
+U 1 1 682F9AE0
+P 13400 8800
+F 0 "GND_55" H 13400 8940 20  0000 C CNN
+F 1 "GND" H 13400 8910 30  0000 C CNN
+F 2 "" H 13400 8800 70  0000 C CNN
+F 3 "" H 13400 8800 70  0000 C CNN
+	1    13400 8800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13400 8800 13400 8600
+Text Notes 11900 7300 0    108   ~ 0
+THE 3V3 OUTPUT FROM PMIC IS USED AS PGOOD.
+Wire Wire Line
+	14300 7900 13400 7900
+$Comp
+L power:GND #PWR?682F9ADF
+U 1 1 682F9ADF
+P 12600 4400
+F 0 "GND_56" H 12600 4540 20  0000 C CNN
+F 1 "GND" H 12600 4510 30  0000 C CNN
+F 2 "" H 12600 4400 70  0000 C CNN
+F 3 "" H 12600 4400 70  0000 C CNN
+	1    12600 4400
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+PMICOUT_3V3 #PWR?682F9ADE
+U 1 1 682F9ADE
+P 12800 1600
+F 0 "PMICOUT_3V3_2" H 12800 1600 20  0000 C CNN
+F 1 "PMICOUT_3V3" H 12800 1530 30  0000 C CNN
+F 2 "" H 12800 1600 70  0000 C CNN
+F 3 "" H 12800 1600 70  0000 C CNN
+	1    12800 1600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+PMIC_1V2 #PWR?682F9ADD
+U 1 1 682F9ADD
+P 12800 2600
+F 0 "PMIC_1V2_2" H 12800 2600 20  0000 C CNN
+F 1 "PMIC_1V2" H 12800 2530 30  0000 C CNN
+F 2 "" H 12800 2600 70  0000 C CNN
+F 3 "" H 12800 2600 70  0000 C CNN
+	1    12800 2600
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+PMIC_1V0 #PWR?682F9ADC
+U 1 1 682F9ADC
+P 12800 3200
+F 0 "PMIC_1V0_6" H 12800 3200 20  0000 C CNN
+F 1 "PMIC_1V0" H 12800 3130 30  0000 C CNN
+F 2 "" H 12800 3200 70  0000 C CNN
+F 3 "" H 12800 3200 70  0000 C CNN
+	1    12800 3200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+PMIC_1V8 #PWR?682F9ADB
+U 1 1 682F9ADB
+P 12500 3800
+F 0 "PMIC_1V8_4" H 12500 3800 20  0000 C CNN
+F 1 "PMIC_1V8" H 12500 3730 30  0000 C CNN
+F 2 "" H 12500 3800 70  0000 C CNN
+F 3 "" H 12500 3800 70  0000 C CNN
+	1    12500 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 5300 1000 4500
+Wire Wire Line
+	2300 5300 2300 4500
+Wire Wire Line
+	3000 5300 3000 4500
+Wire Wire Line
+	1700 6100 1700 5600
+Wire Wire Line
+	1500 6300 1500 6100
+$Comp
+L power:GND #PWR?682F9ADA
+U 1 1 682F9ADA
+P 1500 6300
+F 0 "GND_57" H 1500 6440 20  0000 C CNN
+F 1 "GND" H 1500 6410 30  0000 C CNN
+F 2 "" H 1500 6300 70  0000 C CNN
+F 3 "" H 1500 6300 70  0000 C CNN
+	1    1500 6300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 3500 1000 4100
+Wire Wire Line
+	1700 3500 1700 4100
+Wire Wire Line
+	2300 3500 2300 4100
+Wire Wire Line
+	3000 3500 3000 4100
+Text Label 1000 3900 1 60 ~
+SW0
+Text Label 1700 3900 1 60 ~
+SW1
+Text Label 2300 3900 1 60 ~
+SW2
+Text Label 3000 3900 1 60 ~
+SW3
+Text Notes 1200 3200 0    108   ~ 0
+SNUBBER ON SWITCHING NODES
+Text Notes 5600 700 0    168   ~ 12
+PMIC (3.3V, 1.2V, 1.8V,2.3V OUTPUTS) REFERENCE
+Wire Wire Line
+	7800 4100 8300 4100
+Wire Wire Line
+	7200 4100 7400 4100
+Text GLabel 6600 4100 2 60 BiDi ~
+AR_SCL
+Wire Wire Line
+	7200 4300 8300 4300
+Text GLabel 6400 4300 2 60 BiDi ~
+PMIC_NRST
+Text GLabel 4000 4500 2 60 BiDi ~
+PMIC_CLK
+Wire Wire Line
+	7800 4600 8300 4600
+Wire Wire Line
+	7800 4700 8300 4700
+Wire Wire Line
+	7800 4800 8300 4800
+Text GLabel 7200 4600 2 60 BiDi ~
+PMIC_EN1
+Text GLabel 7200 4700 2 60 BiDi ~
+PMIC_EN2
+Text GLabel 7200 4800 2 60 BiDi ~
+PMIC_EN3
+$Comp
+L power:+5V_UNREG #PWR?682F9AD9
+U 1 1 682F9AD9
+P 7500 2000
+F 0 "5V_UNREG_2" H 7500 2000 20  0000 C CNN
+F 1 "5V_UNREG" H 7500 1930 30  0000 C CNN
+F 2 "" H 7500 2000 70  0000 C CNN
+F 3 "" H 7500 2000 70  0000 C CNN
+	1    7500 2000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 2200 8300 2200
+Wire Wire Line
+	7500 2000 7500 2200
+Wire Wire Line
+	7500 2600 8300 2600
+Wire Wire Line
+	7500 2200 7500 2600
+$Comp
+L power:GND #PWR?682F9AD8
+U 1 1 682F9AD8
+P 7700 3600
+F 0 "GND_58" H 7700 3740 20  0000 C CNN
+F 1 "GND" H 7700 3710 30  0000 C CNN
+F 2 "" H 7700 3600 70  0000 C CNN
+F 3 "" H 7700 3600 70  0000 C CNN
+	1    7700 3600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7500 3100 7500 2600
+Wire Wire Line
+	7500 3500 7500 3100
+Wire Wire Line
+	8300 3500 7500 3500
+Wire Wire Line
+	7500 3100 8300 3100
+Wire Wire Line
+	7700 3300 8300 3300
+Wire Wire Line
+	7800 4000 8300 4000
+Wire Wire Line
+	7200 4000 7400 4000
+Text GLabel 6600 4000 2 60 BiDi ~
+AR_SDA
+Wire Wire Line
+	10700 4800 10100 4800
+Wire Wire Line
+	10700 4900 10700 4800
+Wire Wire Line
+	10700 5000 10100 5000
+Wire Wire Line
+	10700 4900 10100 4900
+Wire Wire Line
+	10700 5000 10700 4900
+Wire Wire Line
+	10700 5300 10700 5000
+$Comp
+L power:GND #PWR?682F9AD7
+U 1 1 682F9AD7
+P 10700 5300
+F 0 "GND_59" H 10700 5440 20  0000 C CNN
+F 1 "GND" H 10700 5410 30  0000 C CNN
+F 2 "" H 10700 5300 70  0000 C CNN
+F 3 "" H 10700 5300 70  0000 C CNN
+	1    10700 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6400 4200 8300 4200
+Wire Wire Line
+	6400 3500 6400 4200
+Wire Wire Line
+	5800 4400 8200 4400
+Wire Wire Line
+	5800 3500 5800 4400
+Wire Wire Line
+	5800 2800 5800 3100
+Wire Wire Line
+	6100 2800 5800 2800
+Wire Wire Line
+	6400 2800 6100 2800
+Wire Wire Line
+	6400 3100 6400 2800
+$Comp
+L power:+PMICVIO_3V3 #PWR?682F9AD6
+U 1 1 682F9AD6
+P 6100 2600
+F 0 "PMICVIO_3V3_2" H 6100 2600 20  0000 C CNN
+F 1 "PMICVIO_3V3" H 6100 2530 30  0000 C CNN
+F 2 "" H 6100 2600 70  0000 C CNN
+F 3 "" H 6100 2600 70  0000 C CNN
+	1    6100 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6100 2800 6100 2600
+$Comp
+L power:GND #PWR?682F9AD5
+U 1 1 682F9AD5
+P 12100 5100
+F 0 "GND_60" H 12100 5240 20  0000 C CNN
+F 1 "GND" H 12100 5210 30  0000 C CNN
+F 2 "" H 12100 5100 70  0000 C CNN
+F 3 "" H 12100 5100 70  0000 C CNN
+	1    12100 5100
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V_UNREG #PWR?682F9AD4
+U 1 1 682F9AD4
+P 12000 4500
+F 0 "5V_UNREG_3" H 12000 4500 20  0000 C CNN
+F 1 "5V_UNREG" H 12000 4430 30  0000 C CNN
+F 2 "" H 12000 4500 70  0000 C CNN
+F 3 "" H 12000 4500 70  0000 C CNN
+	1    12000 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	11100 2200 10100 2200
+Wire Wire Line
+	11300 2800 10100 2800
+$Comp
+L power:GND #PWR?682F9AD3
+U 1 1 682F9AD3
+P 13900 2500
+F 0 "GND_61" H 13900 2640 20  0000 C CNN
+F 1 "GND" H 13900 2610 30  0000 C CNN
+F 2 "" H 13900 2500 70  0000 C CNN
+F 3 "" H 13900 2500 70  0000 C CNN
+	1    13900 2500
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?682F9AD2
+U 1 1 682F9AD2
+P 13400 3200
+F 0 "GND_62" H 13400 3340 20  0000 C CNN
+F 1 "GND" H 13400 3310 30  0000 C CNN
+F 2 "" H 13400 3200 70  0000 C CNN
+F 3 "" H 13400 3200 70  0000 C CNN
+	1    13400 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13900 1900 13900 2000
+Wire Wire Line
+	12800 1900 13900 1900
+Wire Wire Line
+	13400 2700 12800 2700
+Wire Wire Line
+	13400 2800 13400 2700
+Wire Wire Line
+	13400 3100 13400 3200
+Wire Wire Line
+	11200 3400 10100 3400
+Wire Wire Line
+	12100 3400 11800 3400
+Wire Wire Line
+	12800 3400 12100 3400
+Wire Wire Line
+	12800 3200 12800 3400
+Wire Wire Line
+	13000 3400 12800 3400
+Wire Wire Line
+	13000 3800 13000 3700
+$Comp
+L power:GND #PWR?682F9AD1
+U 1 1 682F9AD1
+P 13000 3800
+F 0 "GND_63" H 13000 3940 20  0000 C CNN
+F 1 "GND" H 13000 3910 30  0000 C CNN
+F 2 "" H 13000 3800 70  0000 C CNN
+F 3 "" H 13000 3800 70  0000 C CNN
+	1    13000 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	12000 4600 12000 4500
+Wire Wire Line
+	12100 4600 12000 4600
+Wire Wire Line
+	12100 4800 12100 4600
+Wire Wire Line
+	12000 4600 10100 4600
+Wire Wire Line
+	11100 4000 10100 4000
+Wire Wire Line
+	12200 4000 11700 4000
+Wire Wire Line
+	12500 4000 12200 4000
+Wire Wire Line
+	12500 3800 12500 4000
+Wire Wire Line
+	12600 4000 12500 4000
+Wire Wire Line
+	12600 4300 12600 4400
+Wire Wire Line
+	4400 7900 4400 7600
+Wire Wire Line
+	4400 8200 4400 7900
+Wire Wire Line
+	4400 7000 4400 7200
+$Comp
+L power:+5V_IN #PWR?682F9AD0
+U 1 1 682F9AD0
+P 4400 7000
+F 0 "5V_IN_4" H 4400 7000 20  0000 C CNN
+F 1 "5V_IN" H 4400 6930 30  0000 C CNN
+F 2 "" H 4400 7000 70  0000 C CNN
+F 3 "" H 4400 7000 70  0000 C CNN
+	1    4400 7000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR?682F9ACF
+U 1 1 682F9ACF
+P 4400 8800
+F 0 "GND_64" H 4400 8940 20  0000 C CNN
+F 1 "GND" H 4400 8910 30  0000 C CNN
+F 2 "" H 4400 8800 70  0000 C CNN
+F 3 "" H 4400 8800 70  0000 C CNN
+	1    4400 8800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4400 8800 4400 8600
+Wire Wire Line
+	5200 7900 4400 7900
+Wire Wire Line
+	5200 7600 5200 7900
+$Comp
+L power:+PMICVIO_3V3 #PWR?682F9ACE
+U 1 1 682F9ACE
+P 5200 7600
+F 0 "PMICVIO_3V3_3" H 5200 7600 20  0000 C CNN
+F 1 "PMICVIO_3V3" H 5200 7530 30  0000 C CNN
+F 2 "" H 5200 7600 70  0000 C CNN
+F 3 "" H 5200 7600 70  0000 C CNN
+	1    5200 7600
+	1    0    0    -1  
+$EndComp
+Text Notes 4800 6600 0    108   ~ 0
+CONTROLS FOR THE PMIC
+Wire Wire Line
+	7200 7000 7200 7300
+Text GLabel 14300 7900 2 60 BiDi ~
+PGOOD
+Wire Wire Line
+	12200 3000 10100 3000
+Text GLabel 6000 8500 2 60 BiDi ~
+PMIC_EN1
+Text GLabel 6000 8700 2 60 BiDi ~
+PMIC_EN2
+Text GLabel 6000 8900 2 60 BiDi ~
+PMIC_EN3
+Text GLabel 5800 8200 2 60 BiDi ~
+PMIC_NRST
+Wire Wire Line
+	1500 1900 1500 1700
+Wire Wire Line
+	1100 1900 1100 1700
+Wire Wire Line
+	1500 1900 1100 1900
+Wire Wire Line
+	1700 1900 1500 1900
+Wire Wire Line
+	1900 1900 1700 1900
+Wire Wire Line
+	2300 1900 1900 1900
+Wire Wire Line
+	2300 1700 2300 1900
+Wire Wire Line
+	1100 1100 1100 1400
+Wire Wire Line
+	1500 1100 1100 1100
+Wire Wire Line
+	1700 1100 1500 1100
+Wire Wire Line
+	1900 1100 1700 1100
+Wire Wire Line
+	2300 1100 1900 1100
+Wire Wire Line
+	2300 1400 2300 1100
+Wire Wire Line
+	1900 1900 1900 1700
+Wire Wire Line
+	1700 5300 1700 4500
+Wire Wire Line
+	2300 6100 2300 5600
+Wire Wire Line
+	1000 6100 1000 5600
+Wire Wire Line
+	1500 6100 1000 6100
+Wire Wire Line
+	1700 6100 1500 6100
+Wire Wire Line
+	2300 6100 1700 6100
+Wire Wire Line
+	3000 6100 2300 6100
+Wire Wire Line
+	3000 5600 3000 6100
+Wire Wire Line
+	12100 2200 11700 2200
+Wire Wire Line
+	12800 2200 12100 2200
+Wire Wire Line
+	12800 1900 12800 2200
+Wire Wire Line
+	12800 1600 12800 1900
+Wire Wire Line
+	12100 4200 10100 4200
+Wire Wire Line
+	12100 3600 10100 3600
+Wire Wire Line
+	10700 2400 10100 2400
+Text Label 10200 2800 0 60 ~
+SW1
+Text Label 10300 3400 0 60 ~
+SW2
+Text Label 10400 4000 0 60 ~
+SW3
+Text Label 10200 2200 0 60 ~
+SW0
+Text Label 1200 1700 0 70 ~
+10uF
+Text Label 1600 1700 0 70 ~
+10uF
+Text Label 2400 1700 0 70 ~
+10uF
+Text Label 2000 1700 0 70 ~
+10uF
+Text Label 13500 3100 0 70 ~
+22uF
+Text Label 14000 2300 0 70 ~
+22uF
+Text Label 13100 3700 0 70 ~
+22uF
+Text Label 12700 4300 0 70 ~
+22uF
+Text Label 11390 2930 0 70 ~
+470nH
+Text Label 11190 2330 0 70 ~
+470nH
+Text Label 11190 4130 0 70 ~
+470nH
+Text Label 11290 3530 0 70 ~
+470nH
+Text Label 7400 4100 0 70 ~
+0
+Text Label 7400 4200 0 70 ~
+0
+Text Label 12690 8030 0 70 ~
+0
+Text Label 13430 8490 0 70 ~
+100k
+Text Label 8230 7790 0 70 ~
+10.0k
+Text Label 7930 7790 0 70 ~
+10.0k
+Text Label 7530 7790 0 70 ~
+4.99k
+Text Label 7230 7790 0 70 ~
+4.99k
+Text Label 5830 3390 0 70 ~
+4.99k
+Text Label 6430 3390 0 70 ~
+4.99k
+Text Label 4430 7490 0 70 ~
+1.0k
+Text Label 1030 4390 0 70 ~
+3.83
+Text Label 1730 4390 0 70 ~
+3.83
+Text Label 2330 4390 0 70 ~
+3.83
+Text Label 3030 4390 0 70 ~
+3.83
+Wire Wire Line
+	13900 2500 13900 2300
+Text Label 12200 5100 0 70 ~
+0.22µF
+Text Label 4430 8490 0 70 ~
+1.96k
+Wire Wire Line
+	7700 2400 8300 2400
+Wire Wire Line
+	7700 3300 7700 2400
+Wire Wire Line
+	7700 3600 7700 3300
+Wire Wire Line
+	12200 2800 11900 2800
+Wire Wire Line
+	12800 2800 12200 2800
+Wire Wire Line
+	12800 2700 12800 2800
+Wire Wire Line
+	12800 2600 12800 2700
+Wire Wire Line
+	7200 7300 7200 7500
+Wire Wire Line
+	7500 7300 7200 7300
+Wire Wire Line
+	7900 7300 7500 7300
+Wire Wire Line
+	8200 7300 7900 7300
+Wire Wire Line
+	8200 7500 8200 7300
+Wire Wire Line
+	4800 4500 8300 4500
+Text Label 12300 2200 1 70 ~
+Net Class
+Text Label 8100 3900 1 70 ~
+Net Class
+Text Label 5100 4500 1 70 ~
+Net Class
+Text Label 5800 3700 2 70 ~
+Net Class
+Text Label 8000 4900 3 70 ~
+Net Class
+Text Label 13800 7900 1 70 ~
+Net Class
+Text Label 6900 8200 1 70 ~
+Net Class
+Text Label 7200 7100 0 70 ~
+Net Class
+Text Label 13200 2700 1 70 ~
+Net Class
+Text Label 12400 3400 1 70 ~
+Net Class
+Text Label 12000 4000 1 70 ~
+Net Class
+Text Label 8500 5300 0 70 ~
+LP87524JRNFRQ1
+Wire Wire Line
+	12100 2400 10700 2400
+Wire Wire Line
+	12100 2200 12100 2400
+Wire Wire Line
+	12200 2800 12200 3000
+Wire Wire Line
+	12100 3400 12100 3600
+Wire Wire Line
+	12200 4200 12100 4200
+Wire Wire Line
+	12200 4000 12200 4200
+Wire Wire Line
+	8300 4400 8200 4400
+Text Label 3400 3600 0 70 ~
+Net Class
+Text Label 3100 5600 0 70 ~
+390pF
+Text Label 2400 5600 0 70 ~
+390pF
+Text Label 1800 5600 0 70 ~
+390pF
+Text Label 1100 5600 0 70 ~
+390pF
+Connection ~ 1500 6100
+Connection ~ 1500 1900
+Connection ~ 1500 1100
+Connection ~ 1700 6100
+Connection ~ 1700 1900
+Connection ~ 1700 1100
+Connection ~ 1900 1900
+Connection ~ 1900 1100
+Connection ~ 2300 6100
+Connection ~ 4400 7900
+Connection ~ 6100 2800
+Connection ~ 7200 7300
+Connection ~ 7500 7300
+Connection ~ 7500 3100
+Connection ~ 7500 2600
+Connection ~ 7500 2200
+Connection ~ 7700 3300
+Connection ~ 7900 7300
+Connection ~ 10700 5000
+Connection ~ 10700 4900
+Connection ~ 12000 4600
+Connection ~ 12100 3400
+Connection ~ 12100 2200
+Connection ~ 12200 4000
+Connection ~ 12200 2800
+Connection ~ 12500 4000
+Connection ~ 12800 3400
+Connection ~ 12800 2700
+Connection ~ 12800 1900
+Connection ~ 13400 7900
+$Comp
+L CMP-0008017-2 C59
+U 1 1 682F9ACD
+P 1100 1500
+F 0 "C59" V 1190 1590 60  0000 L BNN
+F 4 "10uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    1100 1500
+	0    1    1    0
+$EndComp
+$Comp
+L Inductor_Iron L2
+U 1 1 682F9ACC
+P 11400 2200
+F 0 "L2" H 11190 2360 60  0000 L BNN
+F 4 "470nH" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    11400 2200
+	1    0    0    -1
+$EndComp
+$Comp
+L Inductor_Iron L3
+U 1 1 682F9ACB
+P 11400 4000
+F 0 "L3" H 11190 4160 60  0000 L BNN
+F 4 "470nH" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    11400 4000
+	1    0    0    -1
+$EndComp
+$Comp
+L Inductor_Iron L4
+U 1 1 682F9ACA
+P 11500 3400
+F 0 "L4" H 11290 3560 60  0000 L BNN
+F 4 "470nH" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    11500 3400
+	1    0    0    -1
+$EndComp
+$Comp
+L Resistor R146
+U 1 1 682F9AC9
+P 7600 4000
+F 0 "R146" H 7500 4000 60  0000 R TNN
+F 4 "" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    7600 4000
+	-1   0    0    1
+$EndComp
+$Comp
+L Resistor R144
+U 1 1 682F9AC8
+P 7600 4100
+F 0 "R144" H 7700 4100 60  0000 L BNN
+F 4 "" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    7600 4100
+	1    0    0    -1
+$EndComp
+$Comp
+L Resistor R141
+U 1 1 682F9AC7
+P 12800 7900
+F 0 "R141" H 12690 7930 60  0000 L BNN
+F 4 "" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    12800 7900
+	1    0    0    -1
+$EndComp
+$Comp
+L Resistor R138
+U 1 1 682F9AC6
+P 13400 8400
+F 0 "R138" V 13410 8370 60  0000 R TNN
+F 4 "100k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    13400 8400
+	0    -1   -1   0
+$EndComp
+$Comp
+L CMP-0025958-3 R145
+U 1 1 682F9AC5
+P 8200 7700
+F 0 "R145" V 8210 7670 60  0000 R TNN
+F 4 "10.0k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    8200 7700
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R148
+U 1 1 682F9AC4
+P 7900 7700
+F 0 "R148" V 7910 7670 60  0000 R TNN
+F 4 "10.0k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    7900 7700
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R142
+U 1 1 682F9AC3
+P 7500 7700
+F 0 "R142" V 7510 7670 60  0000 R TNN
+F 4 "4.99k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    7500 7700
+	0    -1   -1   0
+$EndComp
+$Comp
+L CMP-0008017-2 C60
+U 1 1 682F9AC2
+P 1500 1500
+F 0 "C60" V 1590 1590 60  0000 L BNN
+F 4 "10uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    1500 1500
+	0    1    1    0
+$EndComp
+$Comp
+L Resistor R150
+U 1 1 682F9AC1
+P 7200 7700
+F 0 "R150" V 7190 7730 60  0000 L BNN
+F 4 "4.99k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    7200 7700
+	0    1    1    0
+$EndComp
+$Comp
+L Resistor R143
+U 1 1 682F9AC0
+P 5800 3300
+F 0 "R143" V 5810 3270 60  0000 R TNN
+F 4 "4.99k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    5800 3300
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R147
+U 1 1 682F9ABF
+P 6400 3300
+F 0 "R147" V 6410 3270 60  0000 R TNN
+F 4 "4.99k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    6400 3300
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R149
+U 1 1 682F9ABE
+P 4400 7400
+F 0 "R149" V 4410 7370 60  0000 R TNN
+F 4 "1.0k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    4400 7400
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R190
+U 1 1 682F9ABD
+P 1000 4300
+F 0 "R190" V 1010 4270 60  0000 R TNN
+F 4 "3.83" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    1000 4300
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R191
+U 1 1 682F9ABC
+P 1700 4300
+F 0 "R191" V 1710 4270 60  0000 R TNN
+F 4 "3.83" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    1700 4300
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R192
+U 1 1 682F9ABB
+P 2300 4300
+F 0 "R192" V 2310 4270 60  0000 R TNN
+F 4 "3.83" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    2300 4300
+	0    -1   -1   0
+$EndComp
+$Comp
+L Resistor R193
+U 1 1 682F9ABA
+P 3000 4300
+F 0 "R193" V 3010 4270 60  0000 R TNN
+F 4 "3.83" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    3000 4300
+	0    -1   -1   0
+$EndComp
+$Comp
+L CMP-0078265-1 C68
+U 1 1 682F9AB9
+P 12100 4900
+F 0 "C68" V 12200 5000 60  0000 L BNN
+F 4 "0.22µF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    12100 4900
+	0    1    1    0
+$EndComp
+$Comp
+L Resistor R139
+U 1 1 682F9AB8
+P 4400 8400
+F 0 "R139" V 4410 8370 60  0000 R TNN
+F 4 "1.96k" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    4400 8400
+	0    -1   -1   0
+$EndComp
+$Comp
+L CMP-0008017-2 C72
+U 1 1 682F9AB7
+P 2300 1500
+F 0 "C72" V 2390 1590 60  0000 L BNN
+F 4 "10uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    2300 1500
+	0    1    1    0
+$EndComp
+$Comp
+L CMP-0079120-1 U8
+U 1 1 682F9AB6
+P 9200 3600
+F 0 "U8" H 8500 5200 60  0000 L BNN
+F 4 "LP87524JRNFRQ1" V 1400 2000 60  0001 C CNN "PartNumber"
+	1    9200 3600
+	1    0    0    -1
+$EndComp
+$Comp
+L Capacitor C89
+U 1 1 682F9AB5
+P 3000 5500
+F 0 "C89" V 3010 5410 60  0000 R TNN
+F 4 "390pF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    3000 5500
+	0    -1   -1   0
+$EndComp
+$Comp
+L Capacitor C88
+U 1 1 682F9AB4
+P 2300 5500
+F 0 "C88" V 2310 5410 60  0000 R TNN
+F 4 "390pF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    2300 5500
+	0    -1   -1   0
+$EndComp
+$Comp
+L Capacitor C87
+U 1 1 682F9AB3
+P 1700 5500
+F 0 "C87" V 1710 5410 60  0000 R TNN
+F 4 "390pF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    1700 5500
+	0    -1   -1   0
+$EndComp
+$Comp
+L Capacitor C86
+U 1 1 682F9AB2
+P 1000 5500
+F 0 "C86" V 1010 5410 60  0000 R TNN
+F 4 "390pF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    1000 5500
+	0    -1   -1   0
+$EndComp
+$Comp
+L CMP-0008017-2 C73
+U 1 1 682F9AB1
+P 1900 1500
+F 0 "C73" V 1990 1590 60  0000 L BNN
+F 4 "10uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    1900 1500
+	0    1    1    0
+$EndComp
+$Comp
+L CMP-0008811-2 C54
+U 1 1 682F9AB0
+P 13400 2900
+F 0 "C54" V 13500 3000 60  0000 L BNN
+F 4 "22uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    13400 2900
+	0    1    1    0
+$EndComp
+$Comp
+L Capacitor C55
+U 1 1 682F9AAF
+P 13900 2100
+F 0 "C55" V 13990 2190 60  0000 L BNN
+F 4 "22uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    13900 2100
+	0    1    1    0
+$EndComp
+$Comp
+L Capacitor C81
+U 1 1 682F9AAE
+P 13000 3500
+F 0 "C81" V 13090 3590 60  0000 L BNN
+F 4 "22uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    13000 3500
+	0    1    1    0
+$EndComp
+$Comp
+L Capacitor C82
+U 1 1 682F9AAD
+P 12600 4100
+F 0 "C82" V 12690 4190 60  0000 L BNN
+F 4 "22uF" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    12600 4100
+	0    1    1    0
+$EndComp
+$Comp
+L Inductor_Iron L1
+U 1 1 682F9AAC
+P 11600 2800
+F 0 "L1" H 11390 2960 60  0000 L BNN
+F 4 "470nH" V 1400 2000 60  0001 C CNN "ValueDisplayed"
+	1    11600 2800
+	1    0    0    -1
+$EndComp
+$EndSCHEMATC
