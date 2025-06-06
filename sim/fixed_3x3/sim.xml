@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<openEMS>
+  <FDTD NumberOfTimesteps="30000" endCriteria="0.001" f_max="2700000000">
+    <Excitation Type="0" f0="2400000000" fc="300000000">
+    </Excitation>
+    <BoundaryCond xmin="MUR" xmax="MUR" ymin="MUR" ymax="MUR" zmin="MUR" zmax="MUR">
+    </BoundaryCond>
+  </FDTD>
+  <ContinuousStructure CoordSystem="0">
+    <Properties>
+      <Material Name="FR4">
+        <Property Epsilon="4.3">
+        </Property>
+        <Primitives>
+          <Box Priority="1">
+            <P1 X="-110" Y="-110" Z="0">
+            </P1>
+            <P2 X="110" Y="110" Z="1.6">
+            </P2>
+          </Box>
+        </Primitives>
+      </Material>
+      <Metal Name="copper">
+        <Primitives>
+          <Box Priority="10">
+            <P1 X="-81.25" Y="-76.75" Z="1.6">
+            </P1>
+            <P2 X="-43.75" Y="-48.25" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="-81.25" Y="-14.25" Z="1.6">
+            </P1>
+            <P2 X="-43.75" Y="14.25" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="-81.25" Y="48.25" Z="1.6">
+            </P1>
+            <P2 X="-43.75" Y="76.75" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="-18.75" Y="-76.75" Z="1.6">
+            </P1>
+            <P2 X="18.75" Y="-48.25" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="-18.75" Y="-14.25" Z="1.6">
+            </P1>
+            <P2 X="18.75" Y="14.25" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="-1.5" Y="-14.25" Z="0">
+            </P1>
+            <P2 X="1.5" Y="-5.75" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="-18.75" Y="48.25" Z="1.6">
+            </P1>
+            <P2 X="18.75" Y="76.75" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="43.75" Y="-76.75" Z="1.6">
+            </P1>
+            <P2 X="81.25" Y="-48.25" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="43.75" Y="-14.25" Z="1.6">
+            </P1>
+            <P2 X="81.25" Y="14.25" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="43.75" Y="48.25" Z="1.6">
+            </P1>
+            <P2 X="81.25" Y="76.75" Z="1.6">
+            </P2>
+          </Box>
+          <Box Priority="10">
+            <P1 X="-110" Y="-110" Z="0">
+            </P1>
+            <P2 X="110" Y="110" Z="0">
+            </P2>
+          </Box>
+        </Primitives>
+      </Metal>
+      <LumpedElement Name="port_resist_1" Direction="2" Caps="1" R="50">
+        <Primitives>
+          <Box Priority="20">
+            <P1 X="-1.5" Y="-14.25" Z="0">
+            </P1>
+            <P2 X="1.5" Y="-14.25" Z="1.6">
+            </P2>
+          </Box>
+        </Primitives>
+      </LumpedElement>
+      <Excitation Name="port_excite_1" Type="0" Excite="-0,-0,-1">
+        <Primitives>
+          <Box Priority="20">
+            <P1 X="-1.5" Y="-14.25" Z="0">
+            </P1>
+            <P2 X="1.5" Y="-14.25" Z="1.6">
+            </P2>
+          </Box>
+        </Primitives>
+      </Excitation>
+      <ProbeBox Name="port_ut1" Type="0" Weight="-1">
+        <Primitives>
+          <Box Priority="20">
+            <P1 X="0" Y="-14.25" Z="0">
+            </P1>
+            <P2 X="0" Y="-14.25" Z="1.6">
+            </P2>
+          </Box>
+        </Primitives>
+      </ProbeBox>
+      <ProbeBox Name="port_it1" Type="1" Weight="1" NormDir="2">
+        <Primitives>
+          <Box Priority="20">
+            <P1 X="-1.5" Y="-14.25" Z="0.8">
+            </P1>
+            <P2 X="1.5" Y="-14.25" Z="0.8">
+            </P2>
+          </Box>
+        </Primitives>
+      </ProbeBox>
+    </Properties>
+    <RectilinearGrid DeltaUnit="0.001" CoordSystem="0">
+      <XLines>-110,-83.25,-81.25,-43.75,-41.75,-20.75,-18.75,18.75,20.75,41.75,43.75,81.25,83.25,110</XLines>
+      <YLines>-110,-78.75,-76.75,-48.25,-46.25,-16.25,-14.25,14.25,16.25,46.25,48.25,76.75,78.75,110</YLines>
+      <ZLines>0,1.6,20</ZLines>
+    </RectilinearGrid>
+  </ContinuousStructure>
+</openEMS>
