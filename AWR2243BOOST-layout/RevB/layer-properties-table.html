@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    h1 {
+        color: #333;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+        font-size: 12px;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #4CAF50;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    tr:hover {
+        background-color: #e6f3ff;
+    }
+    .layer-type-signal {
+        background-color: #ffe6e6;
+    }
+    .layer-type-dielectric {
+        background-color: #e6f3ff;
+    }
+    .layer-type-mechanical {
+        background-color: #fffacd;
+    }
+    .layer-type-manufacturing {
+        background-color: #e6ffe6;
+    }
+    .layer-type-system {
+        background-color: #f0f0f0;
+    }
+    .container {
+        overflow-x: auto;
+    }
+</style>
+</head>
+<body>
+    <h1>PCB Layer Properties Table</h1>
+    <p>Complete listing of all layers with their properties from the PCB file.</p>
+    
+    <div class="container">
+        <table id="layerTable">
+            <thead>
+                <tr>
+                    <th>Layer Name</th>
+                    <th>Type</th>
+                    <th>Layer ID</th>
+                    <th>Used By Prims</th>
+                    <th>Copper Thickness</th>
+                    <th>Dielectric Type</th>
+                    <th>Dielectric Constant</th>
+                    <th>Dielectric Height</th>
+                    <th>Dielectric Material</th>
+                    <th>Component Placement</th>
+                    <th>Mech Enabled</th>
+                    <th>Previous</th>
+                    <th>Next</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+        </table>
+    </div>
+
+<script>
+// Layer data
+const layerData = [
+    // Signal Layers
+    { name: "TOP", type: "signal", layerId: "16777217", usedByPrims: "TRUE", copThick: "1.6mil", dielType: "1", dielConst: "3.660", dielHeight: "4mil", dielMaterial: "RO4835 LOPRO", componentPlacement: "1", mechEnabled: "FALSE", prev: "0", next: "2" },
+    { name: "L2", type: "signal", layerId: "16777218", usedByPrims: "TRUE", copThick: "1.2mil", dielType: "1", dielConst: "3.900", dielHeight: "5.7mil", dielMaterial: "FR4 370HR", componentPlacement: "0", mechEnabled: "FALSE", prev: "1", next: "3" },
+    { name: "L3", type: "signal", layerId: "16777219", usedByPrims: "TRUE", copThick: "1.2mil", dielType: "1", dielConst: "4.360", dielHeight: "28mil", dielMaterial: "FR4 370HR", componentPlacement: "0", mechEnabled: "FALSE", prev: "2", next: "4" },
+    { name: "L4", type: "signal", layerId: "16777220", usedByPrims: "TRUE", copThick: "1.2mil", dielType: "1", dielConst: "3.900", dielHeight: "5.84mil", dielMaterial: "FR4 370HR", componentPlacement: "0", mechEnabled: "FALSE", prev: "3", next: "5" },
+    { name: "L5", type: "signal", layerId: "16777221", usedByPrims: "TRUE", copThick: "1.2mil", dielType: "1", dielConst: "4.260", dielHeight: "4mil", dielMaterial: "FR4 370HR", componentPlacement: "0", mechEnabled: "FALSE", prev: "4", next: "32" },
+    { name: "BOTTOM", type: "signal", layerId: "16842751", usedByPrims: "TRUE", copThick: "1.6mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "2", mechEnabled: "FALSE", prev: "5", next: "0" },
+    
+    // Dielectric Layers
+    { name: "Dielectric 1", type: "dielectric", layerId: "17039361", usedByPrims: "FALSE", copThick: "", dielType: "1", dielConst: "3.660", dielHeight: "4mil", dielMaterial: "RO4835 LOPRO", componentPlacement: "", mechEnabled: "", prev: "", next: "" },
+    { name: "Dielectric2", type: "dielectric", layerId: "17039362", usedByPrims: "FALSE", copThick: "", dielType: "1", dielConst: "3.900", dielHeight: "2.85mil", dielMaterial: "FR4 370HR", componentPlacement: "", mechEnabled: "", prev: "", next: "" },
+    { name: "Dielectric 3", type: "dielectric", layerId: "17039366", usedByPrims: "FALSE", copThick: "", dielType: "0", dielConst: "3.900", dielHeight: "2.85mil", dielMaterial: "FR4 370HR", componentPlacement: "", mechEnabled: "", prev: "", next: "" },
+    { name: "Dielectric4", type: "dielectric", layerId: "17039363", usedByPrims: "FALSE", copThick: "", dielType: "1", dielConst: "4.360", dielHeight: "28mil", dielMaterial: "FR4 370HR", componentPlacement: "", mechEnabled: "", prev: "", next: "" },
+    { name: "Dielectric5", type: "dielectric", layerId: "17039364", usedByPrims: "FALSE", copThick: "", dielType: "1", dielConst: "3.900", dielHeight: "2.92mil", dielMaterial: "FR4 370HR", componentPlacement: "", mechEnabled: "", prev: "", next: "" },
+    { name: "Dielectric 6", type: "dielectric", layerId: "17039367", usedByPrims: "FALSE", copThick: "", dielType: "0", dielConst: "3.900", dielHeight: "2.92mil", dielMaterial: "FR4 370HR", componentPlacement: "", mechEnabled: "", prev: "", next: "" },
+    { name: "Dielectric7", type: "dielectric", layerId: "17039365", usedByPrims: "FALSE", copThick: "", dielType: "1", dielConst: "4.260", dielHeight: "4mil", dielMaterial: "FR4 370HR", componentPlacement: "", mechEnabled: "", prev: "", next: "" },
+    
+    // Manufacturing Layers
+    { name: "Top Paste", type: "manufacturing", layerId: "16973832", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "1" },
+    { name: "Top Overlay", type: "manufacturing", layerId: "16973830", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "1" },
+    { name: "Top Solder", type: "manufacturing", layerId: "16973834", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "3", dielConst: "3.500", dielHeight: "0.8mil", dielMaterial: "Solder Resist", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "1" },
+    { name: "Bottom Paste", type: "manufacturing", layerId: "16973833", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "32", next: "0" },
+    { name: "Bottom Overlay", type: "manufacturing", layerId: "16973831", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "32", next: "0" },
+    { name: "Bottom Solder", type: "manufacturing", layerId: "16973835", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "3", dielConst: "3.500", dielHeight: "0.8mil", dielMaterial: "Solder Resist", componentPlacement: "", mechEnabled: "FALSE", prev: "32", next: "0" },
+    
+    // Mid-Layers
+    { name: "Mid-Layer 5", type: "signal", layerId: "16777222", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 6", type: "signal", layerId: "16777223", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 7", type: "signal", layerId: "16777224", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 8", type: "signal", layerId: "16777225", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 9", type: "signal", layerId: "16777226", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 10", type: "signal", layerId: "16777227", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 11", type: "signal", layerId: "16777228", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 12", type: "signal", layerId: "16777229", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 13", type: "signal", layerId: "16777230", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 14", type: "signal", layerId: "16777231", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 15", type: "signal", layerId: "16777232", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 16", type: "signal", layerId: "16777233", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 17", type: "signal", layerId: "16777234", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 18", type: "signal", layerId: "16777235", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 19", type: "signal", layerId: "16777236", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 20", type: "signal", layerId: "16777237", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 21", type: "signal", layerId: "16777238", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 22", type: "signal", layerId: "16777239", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 23", type: "signal", layerId: "16777240", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 24", type: "signal", layerId: "16777241", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 25", type: "signal", layerId: "16777242", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 26", type: "signal", layerId: "16777243", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 27", type: "signal", layerId: "16777244", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 28", type: "signal", layerId: "16777245", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 29", type: "signal", layerId: "16777246", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Mid-Layer 30", type: "signal", layerId: "16777247", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "0", mechEnabled: "FALSE", prev: "0", next: "0" },
+    
+    // Internal Planes
+    { name: "Internal Plane 1", type: "plane", layerId: "16842753", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 2", type: "plane", layerId: "16842754", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 3", type: "plane", layerId: "16842755", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 4", type: "plane", layerId: "16842756", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 5", type: "plane", layerId: "16842757", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 6", type: "plane", layerId: "16842758", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 7", type: "plane", layerId: "16842759", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 8", type: "plane", layerId: "16842760", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 9", type: "plane", layerId: "16842761", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 10", type: "plane", layerId: "16842762", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 11", type: "plane", layerId: "16842763", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 12", type: "plane", layerId: "16842764", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 13", type: "plane", layerId: "16842765", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 14", type: "plane", layerId: "16842766", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 15", type: "plane", layerId: "16842767", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Internal Plane 16", type: "plane", layerId: "16842768", usedByPrims: "FALSE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    
+    // Mechanical Layers
+    { name: "M1 Board Outline", type: "mechanical", layerId: "16908289", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M2 Board Dimensions", type: "mechanical", layerId: "16908290", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M3 3D STEP Top", type: "mechanical", layerId: "16908291", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M4 3D STEP Bottom", type: "mechanical", layerId: "16908292", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M5 Assembly Top", type: "mechanical", layerId: "16908293", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M6 Assembly Bottom", type: "mechanical", layerId: "16908294", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M9 Title Sheet", type: "mechanical", layerId: "16908297", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M10 Fab Notes", type: "mechanical", layerId: "16908298", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M11 Gerber Information", type: "mechanical", layerId: "16908299", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M12 Stackup", type: "mechanical", layerId: "16908300", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M13 Component Bodies Top", type: "mechanical", layerId: "16908301", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M14 Component Bodies Bottom", type: "mechanical", layerId: "16908302", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M15 Courtyards Top", type: "mechanical", layerId: "16908303", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M16 Courtyards Bottom", type: "mechanical", layerId: "16908304", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "0", next: "0" },
+    { name: "M17 Embedded Cavity", type: "mechanical", layerId: "16908305", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "16973824", next: "16973824" },
+    { name: "M18 Embedded Assembly", type: "mechanical", layerId: "16908306", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "16973824", next: "16973824" },
+    { name: "M19 Embedded Keepout", type: "mechanical", layerId: "16908307", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "TRUE", prev: "16973824", next: "16973824" },
+    
+    // System Layers
+    { name: "Drill Guide", type: "system", layerId: "16973836", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Keep-Out Layer", type: "system", layerId: "16973837", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Drill Drawing", type: "system", layerId: "16973838", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" },
+    { name: "Multi-Layer", type: "system", layerId: "16973839", usedByPrims: "TRUE", copThick: "1.4mil", dielType: "0", dielConst: "4.800", dielHeight: "12.6mil", dielMaterial: "FR-4", componentPlacement: "", mechEnabled: "FALSE", prev: "0", next: "0" }
+];
+
+// Populate table
+const tableBody = document.getElementById('tableBody');
+layerData.forEach(layer => {
+    const row = document.createElement('tr');
+    row.className = `layer-type-${layer.type}`;
+    
+    row.innerHTML = `
+        <td><strong>${layer.name}</strong></td>
+        <td>${layer.type.charAt(0).toUpperCase() + layer.type.slice(1)}</td>
+        <td>${layer.layerId || '-'}</td>
+        <td>${layer.usedByPrims || '-'}</td>
+        <td>${layer.copThick || '-'}</td>
+        <td>${layer.dielType || '-'}</td>
+        <td>${layer.dielConst || '-'}</td>
+        <td>${layer.dielHeight || '-'}</td>
+        <td>${layer.dielMaterial || '-'}</td>
+        <td>${layer.componentPlacement === '0' ? 'No' : layer.componentPlacement === '1' ? 'Top' : layer.componentPlacement === '2' ? 'Bottom' : '-'}</td>
+        <td>${layer.mechEnabled || '-'}</td>
+        <td>${layer.prev || '-'}</td>
+        <td>${layer.next || '-'}</td>
+    `;
+    
+    tableBody.appendChild(row);
+});
+</script>
+</body>
+</html>

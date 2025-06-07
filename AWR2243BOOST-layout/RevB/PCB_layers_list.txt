@@ -1,0 +1,109 @@
+# PCB Layer Names (from PROC099A_PCB.txt)
+
+## Signal and Core Layers
+TOP
+L2
+L3
+L4
+L5
+BOTTOM
+Mid-Layer 5
+Mid-Layer 6
+Mid-Layer 7
+Mid-Layer 8
+Mid-Layer 9
+Mid-Layer 10
+Mid-Layer 11
+Mid-Layer 12
+Mid-Layer 13
+Mid-Layer 14
+Mid-Layer 15
+Mid-Layer 16
+Mid-Layer 17
+Mid-Layer 18
+Mid-Layer 19
+Mid-Layer 20
+Mid-Layer 21
+Mid-Layer 22
+Mid-Layer 23
+Mid-Layer 24
+Mid-Layer 25
+Mid-Layer 26
+Mid-Layer 27
+Mid-Layer 28
+Mid-Layer 29
+Mid-Layer 30
+
+## Internal Planes
+Internal Plane 1
+Internal Plane 2
+Internal Plane 3
+Internal Plane 4
+Internal Plane 5
+Internal Plane 6
+Internal Plane 7
+Internal Plane 8
+Internal Plane 9
+Internal Plane 10
+Internal Plane 11
+Internal Plane 12
+Internal Plane 13
+Internal Plane 14
+Internal Plane 15
+Internal Plane 16
+
+## Solder, Paste, Overlay
+Top Overlay
+Bottom Overlay
+Top Paste
+Bottom Paste
+Top Solder
+Bottom Solder
+
+## Mechanical/Documentation Layers
+M1 Board Outline
+M2 Board Dimensions
+M3 3D STEP Top
+M4 3D STEP Bottom
+M5 Assembly Top
+M6 Assembly Bottom
+M9 Title Sheet
+M10 Fab Notes
+M11 Gerber Information
+M12 Stackup
+M13 Component Bodies Top
+M14 Component Bodies Bottom
+M15 Courtyards Top
+M16 Courtyards Bottom
+M17 Embedded Cavity
+M18 Embedded Assembly
+M19 Embedded Keepout
+Mechanical 20
+Mechanical 21
+Mechanical 22
+Mechanical 23
+Mechanical 24
+Mechanical 25
+Mechanical 26
+Mechanical 27
+Mechanical 28
+Mechanical 29
+Mechanical 30
+Mechanical 31
+AUTOSILK_BOTTOM
+1
+2
+
+## Utility/Other Layers
+Drill Guide
+Drill Drawing
+Keep-Out Layer
+Multi-Layer
+Connections
+Background
+DRC Error Markers
+Selections
+Visible Grid 1
+Visible Grid 2
+Pad Holes
+Via Holes 
